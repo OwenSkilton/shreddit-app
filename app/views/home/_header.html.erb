@@ -9,6 +9,10 @@
       <li class="nav-item">
       <% if user_signed_in? %>
         <%= link_to 'My Posts', posts_path, class:"nav-link" %>
+      <%end%>
+      </li>
+      <li class="nav-item">
+      <% if user_signed_in? %>
         <%= link_to 'Create Posts', new_post_path, class:"nav-link" %>
       <%end%>
       </li>
