@@ -1,0 +1,32 @@
+<h1>All Posts</h1>
+
+<br>
+
+<% @posts.reverse.each do |post| %>
+    <div class="card">
+        <div class="card-header">
+            <h4><%= post.title %> </h4> <p>User ID: <%=post.user.id%><p>
+        </div>
+        <div class="card-body">
+            <img src="<%= URI.parse(post.photo) %>" alt=" ">
+            <br/>
+            <%= post.description %>
+        </div>
+        <div class="card-footer">
+            <%= link_to 'Show', post %> |
+            <% if post.user == current_user %>
+                <%= link_to 'Edit', edit_post_path(post) %> |
+                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% else %>
+                <td></td>
+                <td></td>
+            <% end %>
+        </div>        
+    </div>
+    <br/>       
+<% end %>
+<% if user_signed_in? %>
+    <%= link_to 'New Post', new_post_path, class:"btn btn-primary" %>
+<%end%>
+
+    

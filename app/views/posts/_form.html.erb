@@ -1,0 +1,40 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">    
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">    
+    <%= form.label :description %>
+    <%= form.text_field :description, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">    
+    <%= form.label :photo %>
+    <%= form.text_field :photo, class:"form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <% form.label :user_id %>
+    <%= form.number_field :user_id, id: :friend_user_id, class:"form-control", value: current_user.id, type: "hidden" %>
+  </div>
+
+  <br/>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+
+<% end %>
