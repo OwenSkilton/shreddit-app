@@ -9,12 +9,11 @@
         </div>
         <div class="card-body">
             <div>
-            <img src="<%= URI.parse(post.photo) %>" alt=" " style='object-fit: contain'/>
-            <br/>
+                <img src="<%= URI.parse(post.photo) %>" alt=" " style='height: 90%, width: 90%, object-fit: contain'>
+            </div>
             <br/>
             <%= post.description %>
         </div>
-        <br/>
         <div class="card-footer">
             <%= link_to 'Show', post %> |
             <% if post.user == current_user %>
