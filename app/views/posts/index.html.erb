@@ -13,18 +13,19 @@
                 <h4><%= post.title %> </h4> <p>User ID: <%=post.user.id%></p>
             </div>
             <div class="card-body">
-                <img src="<%= URI.parse(post.photo) %>" alt=" ">
+                <div>
+                    <img src="<%= URI.parse(post.photo) %>" alt=" ">
+                </div>
                 <br/>
                 <%= post.description %>
             </div>
             <div class="card-footer">
-                <%= link_to 'Show', post %> |
                 <% if post.user == current_user %>
+                    <%= link_to 'Show', post %> |
                     <%= link_to 'Edit', edit_post_path(post) %> |
                     <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
                 <% else %>
-                    <td></td>
-                    <td></td>
+                    <%= link_to 'Show', post %>
                 <% end %>
             </div>        
         </div>
