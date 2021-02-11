@@ -8,10 +8,13 @@
             <h4><%= post.title %> </h4> <p>User ID: <%=post.user.id%><p>
         </div>
         <div class="card-body">
-            <img src="<%= URI.parse(post.photo) %>" alt=" ">
+            <div>
+            <img src="<%= URI.parse(post.photo) %>" alt=" " style='object-fit: contain'/>
+            <br/>
             <br/>
             <%= post.description %>
         </div>
+        <br/>
         <div class="card-footer">
             <%= link_to 'Show', post %> |
             <% if post.user == current_user %>
