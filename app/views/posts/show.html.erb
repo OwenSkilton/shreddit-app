@@ -11,7 +11,7 @@
     </div>       
 </div>
 <br/>       
-<% if @post.user == current_user %>
+<% if @post.user == current_user || current_user.id == 1 %>
   <%= link_to 'Back', root_path, class:"btn btn-primary" %> |
   <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-primary"  %> |
   <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
